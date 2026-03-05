@@ -25,6 +25,15 @@ return {
         map("K", vim.lsp.buf.hover, "Hover Documentation")
         map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
         map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+
+        -- Native-style Neovim 0.11 keybinds
+        map("grn", vim.lsp.buf.rename, "[G]oto [R]e[n]ame")
+        map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction")
+        map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+        map("gri", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+        map("gO", require("telescope.builtin").lsp_document_symbols, "Document Symbols")
+
+        -- Existing aliases
         map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
         map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
         map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")

@@ -6,17 +6,17 @@ return {
     local harpoon = require("harpoon")
     harpoon:setup()
 
-    local keys = { "j", "k", "l", ";" }
-    for idx, key in ipairs(keys) do
+    local slots = { "1", "2", "3", "4" }
+    for idx, key in ipairs(slots) do
       vim.keymap.set("n", string.format("<leader>a%s", key), function()
         harpoon:list():replace_at(idx)
-      end)
+      end, { desc = string.format("Harpoon set file %d", idx) })
     end
 
-    for idx, key in ipairs({ "j", "k", "l", ";" }) do
+    for idx, key in ipairs(slots) do
       vim.keymap.set("n", string.format("<leader>%s", key), function()
         harpoon:list():select(idx)
-      end)
+      end, { desc = string.format("Harpoon goto file %d", idx) })
     end
   end,
 }
