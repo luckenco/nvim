@@ -4,11 +4,14 @@ My personal Neovim configuration using lazy.nvim for plugin management.
 
 ## Features
 
-- LSP support with autocompletion
+- Native Neovim 0.11+ LSP setup with autocompletion
+- Nix-managed language servers and tooling
 - Treesitter for syntax highlighting
 - Telescope for fuzzy finding
-- Custom keymaps and settings
+- Gitsigns for inline git hunk workflows
+- mini.nvim modules for comment + surround editing
 - Harpoon for quick navigation
+- Spell checking is intentionally disabled by default to avoid false positives on technical terms (`:setlocal spell` to enable per buffer, `:setlocal nospell` to disable).
 
 ## Structure
 
@@ -24,10 +27,12 @@ My personal Neovim configuration using lazy.nvim for plugin management.
     - `avante.lua` - Setup for LLM-augmented coding
     - `colors.lua` - Color scheme configuration
     - `completion.lua` - Autocompletion settings
+    - `gitsigns.lua` - Git hunk signs and actions
     - `harpoon.lua` - Quick file navigation
-    - `lsp.lua` - Language Server settings
+    - `lsp.lua` - Native 0.11+ Language Server configuration
     - `lsp_signature.lua` - Function signature help
     - `lualine.lua` - Status line customization
+    - `mini.lua` - mini.nvim modules (comment/surround)
     - `rust_owl.lua` - Visualize ownership and lifetimes in Rust for debugging and optimization
     - `telescope.lua` - Fuzzy finder configuration
     - `treesitter.lua` - Syntax highlighting

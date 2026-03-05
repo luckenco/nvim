@@ -2,7 +2,7 @@ return {
   "cordx56/rustowl",
   version = "*",
   build = "cargo binstall rustowl",
-  lazy = "false",
+  lazy = false,
   opts = {
     client = {
       on_attach = function(_, buffer)

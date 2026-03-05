@@ -15,8 +15,6 @@ return {
   opts = {
     notify_on_error = false,
     format_on_save = function(bufnr)
-      local disable_filetypes = { c = false }
-
       -- Disable with a global or buffer-local variable
       if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
         return
@@ -24,7 +22,7 @@ return {
 
       return {
         timeout_ms = 500,
-        lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+        lsp_fallback = true,
       }
     end,
     formatters_by_ft = {

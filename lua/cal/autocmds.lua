@@ -54,7 +54,7 @@ for _, pat in ipairs({ "text", "markdown", "gitcommit" }) do
   vim.api.nvim_create_autocmd("Filetype", {
     pattern = pat,
     group = text,
-    command = "setlocal spell tw=72 colorcolumn=73",
+    command = "setlocal tw=72 colorcolumn=73",
   })
 end
 
