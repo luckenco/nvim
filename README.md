@@ -24,7 +24,6 @@ My personal Neovim configuration using lazy.nvim for plugin management.
   - `usercmds.lua` - User commands
   - `plugins/` - Plugin configurations
     - `autoformat.lua` - Automatic code formatting
-    - `avante.lua` - Setup for LLM-augmented coding
     - `colors.lua` - Color scheme configuration
     - `completion.lua` - Autocompletion settings
     - `gitsigns.lua` - Git hunk signs and actions
