@@ -57,6 +57,8 @@ return {
 
     local servers = {
       clangd = {},
+      astro = {},
+      tsgo = {},
       lua_ls = {
         settings = {
           Lua = {
