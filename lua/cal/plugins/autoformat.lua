@@ -29,6 +29,12 @@ return {
       lua = { "stylua" },
       go = { "gofmt" },
       nix = { "nixfmt" },
+      javascript = { "biome" },
+      javascriptreact = { "biome" },
+      typescript = { "biome" },
+      typescriptreact = { "biome" },
+      json = { "biome" },
+      jsonc = { "biome" },
     },
   },
 }
