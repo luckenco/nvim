@@ -3,16 +3,22 @@ return {
   build = ":TSUpdate",
   opts = {
     ensure_installed = { "bash", "c", "diff", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
-    auto_install = true,
-    highlight = {
-      enable = true,
-    },
-    indent = { enable = true },
   },
   config = function(_, opts)
-    -- See `:help nvim-treesitter`
+    local treesitter = require("nvim-treesitter")
     require("nvim-treesitter.install").prefer_git = true
-    ---@diagnostic disable-next-line: missing-fields
-    require("nvim-treesitter.configs").setup(opts)
+    treesitter.setup({})
+
+    local ensure_installed = opts.ensure_installed or {}
+    if #ensure_installed > 0 then
+      local installed = treesitter.get_installed()
+      local missing = vim.tbl_filter(function(lang)
+        return not vim.list_contains(installed, lang)
+      end, ensure_installed)
+
+      if #missing > 0 then
+        treesitter.install(missing)
+      end
+    end
   end,
 }

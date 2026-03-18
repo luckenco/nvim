@@ -74,6 +74,18 @@ for _, pat in ipairs({ "text", "markdown", "gitcommit" }) do
   })
 end
 
+local treesitter = vim.api.nvim_create_augroup("treesitter-setup", { clear = true })
+vim.api.nvim_create_autocmd("FileType", {
+  group = treesitter,
+  callback = function(args)
+    pcall(vim.treesitter.start, args.buf)
+
+    if pcall(vim.treesitter.get_parser, args.buf) then
+      vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end
+  end,
+})
+
 vim.diagnostic.config({
   virtual_lines = { only_current_line = true },
 })
